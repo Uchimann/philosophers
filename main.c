@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: icelebi <icelebi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/28 15:31:19 by icelebi           #+#    #+#             */
-/*   Updated: 2023/08/28 17:18:35 by icelebi          ###   ########.fr       */
+/*   Created: 2023/08/29 20:22:25 by icelebi           #+#    #+#             */
+/*   Updated: 2023/08/29 20:22:27 by icelebi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,12 @@ int main(int ac, char **av)
     if(control(ac,av) == 1)
     {   
         t_table *table;   
-        table = set_arg(av,ac);  
+        table = set_arg( av,ac);  
         printf("obaaaaaaa");
+        if (table != NULL && table->nop > 0)
+        {
+            start_threads(table);
+        }
     }
     else
         arg_check(ac);
