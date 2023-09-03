@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: icelebi <icelebi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/29 20:22:20 by icelebi           #+#    #+#             */
-/*   Updated: 2023/08/29 20:22:22 by icelebi          ###   ########.fr       */
+/*   Created: 2023/08/29 15:18:59 by eerbek            #+#    #+#             */
+/*   Updated: 2023/09/03 16:25:31 by icelebi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,7 @@ void philo_init(t_philo *philo, t_table *table, int i)
     philo->table = table;
     philo->eat_count = 0;
     philo->last_eat = current_time();
-    //pthread_mutex_init(&table->forks[i], NULL);
-    philo->rfork = malloc(sizeof(pthread_mutex_t));
-    philo->lfork = malloc(sizeof(pthread_mutex_t));
-    pthread_mutex_init(philo->rfork,NULL);
-    pthread_mutex_init(philo->lfork,NULL);
+    pthread_mutex_init(&table->forks[i], NULL);
 }
 
 void    fork_init(t_philo *philo, t_table *table, int i)

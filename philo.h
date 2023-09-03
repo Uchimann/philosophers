@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: icelebi <icelebi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/29 20:22:31 by icelebi           #+#    #+#             */
-/*   Updated: 2023/08/29 20:22:33 by icelebi          ###   ########.fr       */
+/*   Created: 2023/08/29 20:17:50 by eerbek            #+#    #+#             */
+/*   Updated: 2023/09/03 16:34:10 by icelebi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct s_philo
     int eat_count;
     pthread_mutex_t *lfork;
     pthread_mutex_t *rfork;
+    pthread_mutex_t m_eat_count;
     
 } t_philo;
 
@@ -52,6 +53,7 @@ typedef struct s_table
       pthread_mutex_t m_last_eat;
       pthread_mutex_t is_print;
       pthread_mutex_t is_die;
+      pthread_mutex_t m_stop;
       
 } t_table;
 
@@ -65,5 +67,10 @@ void    *philo_routine(void *id_philo);
 void start_threads(t_table *table);
 void philo_init(t_philo *philo, t_table *table, int i);
 void    fork_init(t_philo *philo, t_table *table, int i);
-
+void philo_eating(t_philo *philo);
+void	time_usleep(uint16_t micsec);
+uint64_t	time_from_start(t_table *table);
+int	check_die(t_table *table, int i);
+void die_check(t_table *table);
+void end_threads(t_table *table);
 # endif

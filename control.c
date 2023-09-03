@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   control.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: icelebi <icelebi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: eerbek <eerbek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/29 20:22:14 by icelebi           #+#    #+#             */
-/*   Updated: 2023/08/29 20:22:17 by icelebi          ###   ########.fr       */
+/*   Created: 2023/08/29 12:47:10 by eerbek            #+#    #+#             */
+/*   Updated: 2023/08/31 12:17:05 by eerbek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,6 @@ t_table *set_arg(char **arg, int ac)
     return table;
 }
 
-void arg_check()
-{
-    printf("eksik veya fazla arguman girildi,incorrect");
-}
-
 int control(int ac, char **av)
 {
     if(ac == 5 || ac == 6)
@@ -53,21 +48,3 @@ int control(int ac, char **av)
 
 }
 
-int num_cont(int ac, char **av)
-{
-   int i = 1;
-   int j;
-    while(i < ac)
-    {
-        j = 0;
-        while(av[i][j])
-        {
-            if(av[i][j] <= 57 && av[i][j] >= 48)
-                j++;
-            else
-                return 0;
-        }
-        i++;
-    }
-    return 1;
-}
